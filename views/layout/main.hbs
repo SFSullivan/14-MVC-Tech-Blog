@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>Blog</title>
+    
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a>This is a Tech Blog</a>
+                <div>
+                    <ul>
+                        {{#if loggenin}}
+                        <li>
+                            {{!-- <a>LINK TO HOME HERE</a> --}}
+                        </li>
+                        <li>
+                            {{!-- <a>LINK TO POSTS HERE</a> --}}
+                        </li>
+                          <li>
+                            {{!-- <a>LINK TO LOGOUT</a> --}}
+                        </li>
+                        {{else}}
+                          <li>
+                            {{!-- <a>LINK TO HOME</a> --}}
+                        </li>
+                          <li>
+                            {{!-- <a>LINK TO LOGIN</a> --}}
+                        </li>
+                        {{/if}}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {{{body}}}
+    </main>
+{{#if loggedin}}
+
+{{/if}}
+</body>
+
+</html>
