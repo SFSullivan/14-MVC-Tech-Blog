@@ -1,16 +1,13 @@
 const router = require('express').router();
-const Login = require("Login");
-
-
-
+const Login = require('Login');
 router.post('./register', (req, res) => {
-    Login.findOne({
+    Login.findOne ({
         where: {
             email: req.body.email
         }
     }).then(user => {
         if (user) {
-            return res.send('This user has already been registered');
+            return res.send('This user has already been registered.');
         }
         Login.create({
             email: req.body.email,
@@ -24,28 +21,24 @@ router.post('./register', (req, res) => {
         });
     });
 });
-router.post("/logged", (req, res) => {
+
+
+router.post('/logged', (req, res) => {
     Login.findOne({
         where: {
             username: req.body.username
         }
     }).then(async (user) => {
         if (!user) {
-            return res.redirect('/login');
+            return res.redirect('login');
         }
         const validatePass = await user.validatePassword(req.body.password, user.password);
         if (!validatePass) {
             return res.redirect('/login');
         }
         req.session.save(() => {
-            req.session.user_id = user.id; 
-            res.redirect("/dashboard");
+            req.session.user_id = user.id;
+            res.redirect('/dashboard');
         });
     });
 });
-router.get('/logout', (req, res) => {
-    if (!req.session.user_id) {
-        return res.redirect('/dashboard');
-    }
-});
-module.exports = router;
