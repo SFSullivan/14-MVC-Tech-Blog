@@ -5,7 +5,8 @@ const path = require('path');
 const PORT = process.env.PORT || 3333
 const {engine} = require('express-handlebars');
 const session = require('express-session');
-const SequelizeStore = require('connect-session-sequelize')(session.store)
+const routes = require('./routes')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 app.use(express.static(path.join(__dirname, 'public')));
 
