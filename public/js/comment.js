@@ -1,4 +1,4 @@
-const commentFormHandler = async even => {
+const commentFormHandler = async event => {
     even.preventDefault();
 
     const commentContent = document
