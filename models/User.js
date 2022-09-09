@@ -26,7 +26,7 @@ User.init(
         }
     },
     {
-        seqeulize,
+        sequelize,
         timestamps: false,
         underscored: true,
         modelName: 'user',
@@ -40,7 +40,7 @@ User.init(
     }
 );
 
-user.prototype.validatePassword = async function (password, stored_password) {
+User.prototype.validatePassword = async function (password, stored_password) {
     return await bcrypt.compare(password, stored_password);
 }
 
